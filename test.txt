@@ -1,0 +1,43 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - "{{ myn }}"
+
+  tasks:
+    - vsphere_guest:
+            vcenter_hostname: "{{ vsphere }}"
+            username: "{{ user }}"
+            password: "{{ password }}"
+            guest: "{{ guest }}"
+            state: powered_on
+            validate_certs: no
+            vm_extra_config:
+                vcpu.hotadd: yes
+                mem.hotadd:  yes
+                notes: This is a test VM
+
+            vm_disk:
+                disk1:
+                        size_gb: "{{ disk }}"
+                        type: thin
+                        datastore: "{{ datastore }}"
+            vm_nic:
+                nic1:
+                    type: vmxnet3
+                    network: "{{ network }}"
+                    network_type: standard
+            vm_hardware:
+
+                memory_mb: "{{ ram }}"
+                num_cpus: "{{ cpu }}"
+                osid: centos64Guest
+                scsi: paravirtual
+                vm_cdrom:
+
+                 type: "iso"
+                 iso_path: "{{ iso }}"
+            esxi:
+                datacenter: ha-datacenter
+                hostname: "{{ vspherename }}"
+

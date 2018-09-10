@@ -1,0 +1,45 @@
+Bonjour,
+
+Ci-dessous la procédure de création d'un environnement zabbix_gateway (sources GitLab + bundles dans myproject).
+
+Soit /var/www/zabbix-gateway/dev1 l'emplacement où l'environnement est à créer : ceci est un exemple, ne pas utiliser cet emplacement car celui-ci est déjà utilisé.
+
+
+
+Se connecter à l203rzx001 avec root
+
+cd /var/www/test_pkg
+
+[root@l203rzx001 test_pkg]# cp -p my-project.tar.gz /var/www/zabbix-gateway/dev1/my-project.tar.gz
+
+cd /var/www/zabbix-gateway/dev1
+
+[root@l203rzx001 dev1]# tar -xvzf my-project.tar.gz (dé tar gz my-project.tar.gz)
+
+[root@l203rzx001 dev1]# mv my-project zabbix-gateway (renommer le répertoire créé en zabbix-gateway)
+
+[root@l203rzx001 zabbix-gateway]# cp -p composer.json composer.json.old (sauvegarder les 2 fichiers composer.*)
+[root@l203rzx001 zabbix-gateway]# cp -p composer.lock composer.lock.old
+
+Télécharger le tar gz de zabbix-gateway dans Git / Branch develop 
+Déposer ce tar gz sous dev1>
+
+[root@l203rzx001 dev1]# tar -xvzf zabbix-gateway-develop.tar.gz (dé tar gz le tar gz que l'on vient de déposer)
+-> création rép zabbix-gateway-develop-5ce590460d0fc6b59d56518c9268d9041eb2f769
+
+which cp -> /usr/bin/cp
+[root@l203rzx001 dev1]# /usr/bin/cp -Rf zabbix-gateway-develop-5ce590460d0fc6b59d56518c9268d9041eb2f769/* zabbix-gateway/ (recopie des fichiers et sous-rép de zabbix-gateway-develop dans zabbix-gateway)
+[root@l203rzx001 zabbix-gateway]# cp -p composer.json.old composer.json (restaurer les 2 fichiers composer.* sauvegardés précédemment)
+[root@l203rzx001 zabbix-gateway]# cp -p composer.lock.old composer.lock
+
+Ajouter dev1 dans le fichier hosts en local :
+exemple : 
+10.117.64.26 zabbix-gateway-dev1-d.mousquetaires.com zabbix-gateway-dev1-d zabbix-gateway-dev1-p.mousquetaires.com zabbix-gateway-dev1-p
+
+Ajouter dev1 sur l203rzx001 dans le fichier zabbix-gateway.conf (sous /etc/httpd/conf.d) pour dev et prod
+
+apachectl stop puis start
+
+- Tester http://zabbix-gateway-dev1-d/ 
+- Tester quelques web services de zabbix-gateway avec ARC ou l'api doc (http://zabbix-gateway-dev1-p.mousquetaires.com/api/doc/std)
+

@@ -1,0 +1,12 @@
+---
+vspherename: 'v203pvw304.datacenter.mousquetaires.grp'
+vsphere: '10.109.129.147'
+guest: 'l203pzx306'
+vcpu: '2'
+memory: '12288'
+datastore: 'ST01-Lun000-PACST'
+vlan1: 'VLAN1903-SGP-GOS'
+vlan2: 'VLAN1953-SAV-SGP-GOS'
+iso: 'ST01-Lun000-PACST/isos/V203PVW304/l203pzx306-GOS.iso'
+...
+

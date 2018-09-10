@@ -1,0 +1,18 @@
+---
+- hosts: zabbix_proxy
+  become: yes
+  vars_files:
+  - /root/taha/zabbix_proxy_vars.yml
+  tasks:
+   - name: install zabbix proxy rpm from a local file
+     yum:
+      name: /tmp/zabbix-proxy-pgsql-3.4.11-1.el7.x86_64.rpm
+      state: present
+
+   - name: Configure zabbix-proxy
+     template:
+      src: /root/taha/zabbix_proxy.conf.j2
+      dest: /etc/zabbix/zabbix_proxy.conf
+      owner: zabbix
+      group: zabbix
+      mode: 0644

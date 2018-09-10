@@ -1,0 +1,52 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - "{{ myn }}"
+
+  tasks:
+    - vsphere_guest:
+            vcenter_hostname: "{{ vsphere }}"
+            username: unix
+            password: Vsphere@2018
+            guest: "{{ guest }}"
+            state: powered_on
+            validate_certs: no
+            vm_extra_config:
+                vcpu.hotadd: yes
+                mem.hotadd:  yes
+                notes: "INFRA ZABBIX GOS"
+
+            vm_disk:
+                disk1:
+                        size_gb: 50
+                        type: thick
+                        datastore: "{{ datastore }}"
+                disk2:
+                        size_gb: 50
+                        type: thick
+                        datastore: "{{ datastore }}"
+
+            vm_nic:
+                nic1:
+                    type: vmxnet3
+                    network: "{{ vlan1 }}"
+                    network_type: standard
+                nic2:
+                    type: vmxnet3
+                    network: "{{ vlan2 }}"
+                    network_type: standard
+
+            vm_hardware:
+                memory_mb: "{{ memory }}"
+                num_cpus: "{{ vcpu }}"
+                osid: centos64Guest
+                scsi: paravirtual
+                vm_cdrom:
+                 type: "iso"
+                 iso_path: "{{ iso }}"
+
+            esxi:
+                datacenter: ha-datacenter
+                hostname: "{{ vspherename }}"
+

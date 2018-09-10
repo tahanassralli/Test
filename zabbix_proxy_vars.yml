@@ -1,0 +1,80 @@
+zabbix_proxy_server: l203PZX501-503.mousquetaires.com
+zabbix_proxy_serverport: 10051
+zabbix_proxy_mode: 0
+zabbix_proxy_hostname: l203pzx303-304.mousquetaires.com
+zabbix_proxy_hostnameitem:
+zabbix_proxy_listenport: 10051
+zabbix_proxy_sourceip:
+zabbix_proxy_logtype: file
+zabbix_proxy_logfile: /softwares/zabbix/zabbix_proxy/log/zabbix_proxy.log
+zabbix_proxy_logfilesize: 1024
+zabbix_proxy_debuglevel: 3
+zabbix_proxy_enableremotecommands: 1
+zabbix_proxy_logremotecommands: 0
+zabbix_proxy_pidfile: /var/run/zabbix/zabbix_proxy.pid
+zabbix_proxy_socketdir: /var/run/zabbix
+zabbix_proxy_dbhost: localhost
+zabbix_proxy_dbname: zabbix_proxy
+zabbix_proxy_dbschema: public
+zabbix_proxy_dbuser: zabbix_proxy
+zabbix_proxy_dbpassword: zabbix_proxy
+zabbix_proxy_dbsocket:
+zabbix_proxy_dbport: 5432
+zabbix_proxy_proxylocalbuffer: 0
+zabbix_proxy_proxyofflinebuffer: 192
+zabbix_proxy_heartbeatfrequency: 60
+zabbix_proxy_configfrequency: 60
+zabbix_proxy_datasenderfrequency: 1
+zabbix_proxy_startpollers: 5
+zabbix_proxy_startipmipollers: 0
+zabbix_proxy_startpollersunreachable: 1
+zabbix_proxy_starttrappers: 5
+zabbix_proxy_startpingers: 1
+zabbix_proxy_startdiscoverers: 1
+zabbix_proxy_starthttppollers: 1
+zabbix_proxy_javagateway:
+zabbix_proxy_javagatewayport: 10052
+zabbix_proxy_startjavapollers: 5
+zabbix_proxy_startvmwarecollector: 0
+zabbix_proxy_vmwarefrequency: 60
+zabbix_proxy_vmwareperffrequency: 60
+zabbix_proxy_vmwarecachesize: 8
+zabbix_proxy_vmwaretimeout: 10
+zabbix_proxy_snmptrapperfile: /tmp/zabbix_traps.tmp
+zabbix_proxy_startsnmptrapper: 0
+zabbix_proxy_listenip:
+zabbix_proxy_housekeepingfrequency: 1
+zabbix_proxy_cachesize: 8
+zabbix_proxy_startdbsyncers: 4
+zabbix_proxy_historycachesize: 8
+zabbix_proxy_historyindexcachesize: 4
+zabbix_proxy_timeout: 3
+zabbix_proxy_trappertimeout: 300
+zabbix_proxy_unreachableperiod: 45
+zabbix_proxy_unavaliabledelay: 60
+zabbix_proxy_unreachabedelay: 15
+zabbix_proxy_externalscripts: /softwares/zabbix/zabbix_proxy/externalscripts
+zabbix_proxy_fpinglocation: /usr/sbin/fping
+zabbix_proxy_fping6location: /usr/sbin/fping6
+zabbix_proxy_sshkeylocation:
+zabbix_proxy_loglowqueries: 3000
+zabbix_proxy_tmpdir: /tmp
+zabbix_proxy_allowroot: 0
+zabbix_proxy_user: zabbix
+zabbix_proxy_include: /softwares/zabbix/zabbix_proxy/include/
+zabbix_proxy_sslcertlocation: ${datadir}/zabbix/ssl/certs
+zabbix_proxy_sslkeylocation: ${datadir}/zabbix/ssl/keys
+zabbix_proxy_sslcalocation:
+zabbix_proxy_libdir: /usr/lib/zabbix
+zabbix_proxy_loadmodulepath: "{{ zabbix_proxy_libdir }}/modules"
+zabbix_proxy_loadmodule:
+zabbix_proxy_tlsconnect:
+zabbix_proxy_tlsaccept:
+zabbix_proxy_tlscafile:
+zabbix_proxy_tlscrlfile:
+zabbix_proxy_tlsservercertissuer:
+zabbix_proxy_tlsservercertsubject:
+zabbix_proxy_tlscertfile:
+zabbix_proxy_tlskeyfile:
+zabbix_proxy_tlspskidentity:
+zabbix_proxy_tlspskfile:
